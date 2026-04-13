@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Claudia Salgados - Salgados artesanais premium crus e prontos para consumo">
+    <meta name="keywords" content="salgados, coxinha, bolinha de queijo, kibe, croquete, eventos">
+    <title>Claudia Salgados | Salgados Artesanais Premium</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%23D4A574'>🥟</text></svg>">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <div class="logo-container">
+                    <img src="static/imgs/logo-claudia.png" alt="Logo Claudia Salgados" class="logo" id="logo-img" onerror="this.style.display='none'">
+                    <h1 style="display: inline;">Claudia Salgados</h1>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <div class="cart-icon" onclick="toggleCart()">
+                🛒 <span class="cart-count" id="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-header">
+                <div class="hero-text">
+                    <div class="hero-tagline">RECEITA DE FAMÍLIA</div>
+                    <h2>Salgados premium crus e prontos para consumo</h2>
+                    <div class="badge-encomenda">🥟 SOB ENCOMENDA</div>
+                    <p>Preparados artesanalmente para tornar seus momentos ainda mais deliciosos.</p>
+                    <button class="btn btn-primary" onclick="scrollTo('cardapio')">Ver Cardápio</button>
+                </div>
+                <div class="hero-illustration">
+                    <img src="static/imgs/logo-claudia.png" alt="Logo Claudia Salgados" class="hero-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section class="sobre" id="sobre">
+        <div class="container">
+            <h2>Nossa Essência</h2>
+            <p>Acreditamos que a verdadeira qualidade reside nos detalhes e no afeto. Cada salgado é preparado artesanalmente, utilizando ingredientes rigorosamente selecionados e técnicas tradicionais.</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🌟</div>
+                    <h3>Ingredientes Premium</h3>
+                    <p>Seleção rigorosa de fornecedores e insumos frescos todos os dias.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">👐</div>
+                    <h3>Preparo Artesanal</h3>
+                    <p>Moldados à mão com carinho, garantindo o padrão de qualidade único.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✨</div>
+                    <h3>Sabor Inconfundível</h3>
+                    <p>Temperos especiais e receitas exclusivas aprimoradas há anos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cardápio Section -->
+    <section class="cardapio" id="cardapio">
+        <div class="container">
+            <h2>Nosso Cardápio</h2>
+            <div class="badge-encomenda-cardapio">🥟 Todos os produtos são SOB ENCOMENDA</div>
+            
+            <!-- Filtro de Categorias -->
+            <div class="filtro">
+                <button class="btn-filtro ativo" onclick="filterCategory('todos', event)">Todos</button>
+                <button class="btn-filtro" onclick="filterCategory('cru', event)">Para Fritar em Casa</button>
+                <button class="btn-filtro" onclick="filterCategory('frito', event)">Prontos para Consumo</button>
+            </div>
+
+            <!-- Seção Para Fritar em Casa -->
+            <div id="secao-cru" class="secao-categoria">
+                <h3 class="titulo-categoria">Para Fritar em Casa</h3>
+                <div class="produtos-grid" id="produtos-grid-cru">
+                    <!-- Será preenchido por JavaScript -->
+                </div>
+            </div>
+
+            <!-- Seção Prontos para Consumo -->
+            <div id="secao-frito" class="secao-categoria">
+                <h3 class="titulo-categoria">Prontos para Consumo</h3>
+                <div class="produtos-grid" id="produtos-grid-frito">
+                    <!-- Será preenchido por JavaScript -->
+                </div>
+            </div>
+
+            <!-- Grid Combinado (mostrado quando filtro é "todos") -->
+            <div id="secao-todos" class="secao-categoria" style="display: none;">
+                <div class="produtos-grid" id="produtos-grid">
+                    <!-- Será preenchido por JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal do Produto -->
+    <div class="modal" id="product-modal" onclick="closeProductModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeProductModal()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <div id="modal-image-placeholder">📷</div>
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-category" class="modal-category"></p>
+                    <p id="modal-description" class="modal-description"></p>
+                    <div class="modal-price">
+                        <span id="modal-price"></span>
+                    </div>
+                    <div class="modal-quantity">
+                        <button class="qty-btn" onclick="decrementQty()">−</button>
+                        <input type="number" id="modal-quantity" value="1" min="1">
+                        <button class="qty-btn" onclick="incrementQty()">+</button>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%" onclick="addToCart()">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrinho Lateral -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>🛒 Carrinho</h3>
+            <span class="close" onclick="toggleCart()">&times;</span>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p class="empty-cart">Seu carrinho está vazio</p>
+        </div>
+        <div class="cart-total">
+            <strong>Total:</strong>
+            <span id="cart-total">R$ 0,00</span>
+        </div>
+        <button class="btn btn-primary" style="width: 100%;" onclick="checkout()">Fazer Pedido no WhatsApp</button>
+    </div>
+
+    <!-- Overlay do Carrinho -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+
+    <!-- Contato Section -->
+    <section class="contato" id="contato">
+        <div class="container">
+            <h2>Faça sua Encomenda</h2>
+            
+            <div class="opcoes-pedido">
+                <div class="opcao">
+                    <div class="opcao-icon">🏪</div>
+                    <h3>Retirada</h3>
+                    <p>Retire sua encomenda fresquinha diretamente em nosso local, no horário agendado.</p>
+                    <p class="local"><strong>Jaú, SP, Brasil</strong></p>
+                </div>
+                <div class="opcao">
+                    <div class="opcao-icon">🚗</div>
+                    <h3>Entrega</h3>
+                    <p>Receba no conforto da sua casa ou evento. Entregamos com segurança e qualidade.</p>
+                    <p class="local"><strong>Consulte taxa para seu bairro</strong></p>
+                </div>
+            </div>
+
+            <div class="dados-contato">
+                <h3>Entre em Contato</h3>
+                <div class="contato-info">
+                    <p><strong>📲 WhatsApp:</strong> <a href="https://wa.me/5514996415625" target="_blank">(14) 99641-5625</a></p>
+                    <p><strong>📍 Localização:</strong> Jaú, SP, Brasil</p>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Claudia Salgados</h4>
+                    <p>Tradição e excelência em salgados artesanais. Qualidade premium para os seus melhores momentos.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#cardapio">Cardápio</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/claudia_salgados_jau/" target="_blank">Instagram</a>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Claudia Salgados. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/5514996415625?text=Olá%20Claudia%20Salgados!%20Gostaria%20de%20mais%20informações" target="_blank" class="whatsapp-floating">
+        <img class="whatsapp-icon" src="https://img.icons8.com/?size=48&id=964RahB4l606&format=png" alt="WhatsApp" width="20" height="20">
+        <span class="whatsapp-text">Fale conosco</span>
+    </a>
+</body>
+</html>

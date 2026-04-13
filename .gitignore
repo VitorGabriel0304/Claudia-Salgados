@@ -1,0 +1,23 @@
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+*.db
+
+# Node modules (se usar builder tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build outputs (se usar)
+dist/
+build/
+
+# Arquivo local de configuração
+.env.local
