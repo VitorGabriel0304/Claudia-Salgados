@@ -434,9 +434,13 @@ document.head.appendChild(style);
 
 // ===== SCROLL SUAVE =====
 function scrollTo(sectionId) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+    try {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    } catch (error) {
+        console.error('Erro ao fazer scroll:', error);
     }
 }
 
@@ -447,3 +451,4 @@ document.addEventListener('click', function(event) {
         closeProductModal();
     }
 });
+

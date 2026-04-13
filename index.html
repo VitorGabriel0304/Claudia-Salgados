@@ -40,7 +40,7 @@
                     <h2>Salgados premium crus e prontos para consumo</h2>
                     <div class="badge-encomenda">🥟 SOB ENCOMENDA</div>
                     <p>Preparados artesanalmente para tornar seus momentos ainda mais deliciosos.</p>
-                    <button class="btn btn-primary" onclick="scrollTo('cardapio')">Ver Cardápio</button>
+                    <a href="#cardapio" class="btn btn-primary">Ver Cardápio</a>
                 </div>
                 <div class="hero-illustration">
                     <img src="static/imgs/logo-claudia.png" alt="Logo Claudia Salgados" class="hero-logo">
@@ -83,9 +83,9 @@
             
             <!-- Filtro de Categorias -->
             <div class="filtro">
-                <button class="btn-filtro ativo" onclick="filterCategory('todos', event)">Todos</button>
-                <button class="btn-filtro" onclick="filterCategory('cru', event)">Para Fritar em Casa</button>
-                <button class="btn-filtro" onclick="filterCategory('frito', event)">Prontos para Consumo</button>
+                <button type="button" class="btn-filtro ativo" onclick="filterCategory('todos', event)">Todos</button>
+                <button type="button" class="btn-filtro" onclick="filterCategory('cru', event)">Para Fritar em Casa</button>
+                <button type="button" class="btn-filtro" onclick="filterCategory('frito', event)">Prontos para Consumo</button>
             </div>
 
             <!-- Seção Para Fritar em Casa -->
@@ -129,11 +129,11 @@
                         <span id="modal-price"></span>
                     </div>
                     <div class="modal-quantity">
-                        <button class="qty-btn" onclick="decrementQty()">−</button>
+                        <button type="button" class="qty-btn" onclick="decrementQty()">−</button>
                         <input type="number" id="modal-quantity" value="1" min="1">
-                        <button class="qty-btn" onclick="incrementQty()">+</button>
+                        <button type="button" class="qty-btn" onclick="incrementQty()">+</button>
                     </div>
-                    <button class="btn btn-primary" style="width: 100%" onclick="addToCart()">Adicionar ao Carrinho</button>
+                    <button type="button" class="btn btn-primary" style="width: 100%" onclick="addToCart()">Adicionar ao Carrinho</button>
                 </div>
             </div>
         </div>
@@ -152,7 +152,7 @@
             <strong>Total:</strong>
             <span id="cart-total">R$ 0,00</span>
         </div>
-        <button class="btn btn-primary" style="width: 100%;" onclick="checkout()">Fazer Pedido no WhatsApp</button>
+        <button type="button" class="btn btn-primary" style="width: 100%;" onclick="checkout()">Fazer Pedido no WhatsApp</button>
     </div>
 
     <!-- Overlay do Carrinho -->
