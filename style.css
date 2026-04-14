@@ -101,7 +101,7 @@ body {
     cursor: pointer;
     transition: transform 0.3s, color 0.3s;
     position: relative;
-    color: #ffffff;
+    color: var(--text-dark);
     min-height: 44px;
     min-width: 44px;
     display: inline-flex;
@@ -174,14 +174,24 @@ body {
     .nav-links {
         gap: 0.25rem;
         font-size: 0.75rem;
-        width: 100%;
+        width: auto;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: center;
+    }
+
+    .nav-links li {
+        list-style: none;
     }
 
     .nav-links a {
         padding: 0.4rem 0.6rem;
         min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .cart-link {
         display: inline-flex;
         align-items: center;
     }
