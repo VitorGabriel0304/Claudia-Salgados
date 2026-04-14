@@ -354,7 +354,7 @@ function checkout() {
     
     mensagem += `_________________\n`;
     mensagem += `TOTAL: R$ ${total.toFixed(2)}*\n\n`;
-    mensagem += ``;
+    mensagem += `Aguardo retorno para confirmar o pedido. Obrigado! `;
     
     // Codificar a mensagem para URL
     const mensagemCodificada = encodeURIComponent(mensagem);
