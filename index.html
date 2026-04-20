@@ -86,24 +86,9 @@
                 <button type="button" class="btn-filtro" onclick="filterCategory('frito', event)">Prontos para Consumo</button>
             </div>
 
-            <!-- Seção Para Fritar em Casa -->
-            <div id="secao-cru" class="secao-categoria">
-                <h3 class="titulo-categoria">Para Fritar em Casa</h3>
-                <div class="produtos-grid" id="produtos-grid-cru">
-                    <!-- Será preenchido por JavaScript -->
-                </div>
-            </div>
-
-            <!-- Seção Prontos para Consumo -->
-            <div id="secao-frito" class="secao-categoria">
-                <h3 class="titulo-categoria">Prontos para Consumo</h3>
-                <div class="produtos-grid" id="produtos-grid-frito">
-                    <!-- Será preenchido por JavaScript -->
-                </div>
-            </div>
-
-            <!-- Grid Combinado (mostrado quando filtro é "todos") -->
-            <div id="secao-todos" class="secao-categoria" style="display: none;">
+            <!-- Seção Única de Salgados -->
+            <div id="secao-salgados" class="secao-categoria">
+                <h3 class="titulo-categoria">Nossos Salgados</h3>
                 <div class="produtos-grid" id="produtos-grid">
                     <!-- Será preenchido por JavaScript -->
                 </div>
@@ -121,7 +106,6 @@
                 </div>
                 <div class="modal-info">
                     <h2 id="modal-title"></h2>
-                    <p id="modal-category" class="modal-category"></p>
                     <p id="modal-description" class="modal-description"></p>
                     <div class="modal-price">
                         <span id="modal-price"></span>
