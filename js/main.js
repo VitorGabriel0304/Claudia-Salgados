@@ -5,7 +5,7 @@ const produtos = [
         nome: 'Coxinha',
         descricao: 'Massa leve e crocante com recheio cremoso de frango desfiado e temperos selecionados.',
         precoCru: 20.00,
-        precoFrito: 80.00,
+        precoFrito: 75.00,
         imagem: 'static/imgs/coxinha-de-frango.jpg'
     },
     {
@@ -13,7 +13,7 @@ const produtos = [
         nome: 'Bolinha de Queijo',
         descricao: 'Bolinhas douradas com blend de queijos derretidos e textura perfeitamente crocante.',
         precoCru: 20.00,
-        precoFrito: 80.00,
+        precoFrito: 75.00,
         imagem: 'static/imgs/bolinha-de-queijo.jpg'
     },
     {
@@ -21,7 +21,7 @@ const produtos = [
         nome: 'Kibe',
         descricao: 'Receita tradicional com carne bovina premium, trigo especial e hortelã fresca.',
         precoCru: 20.00,
-        precoFrito: 80.00,
+        precoFrito: 75.00,
         imagem: 'static/imgs/kibe.jpg'
     },
     {
@@ -29,7 +29,7 @@ const produtos = [
         nome: 'Croquete',
         descricao: 'Massa aveludada recheada com milho e queijo, de textura irresistível.',
         precoCru: 20.00,
-        precoFrito: 80.00,
+        precoFrito: 75.00,
         imagem: 'static/imgs/crooquete.jpg'
     },
     {
@@ -37,7 +37,7 @@ const produtos = [
         nome: 'Risoles Variados',
         descricao: 'Massa fina e delicada com opções de recheio: queijo e presunto, Catupiry ou Carne.',
         precoCru: 20.00,
-        precoFrito: 80.00,
+        precoFrito: 75.00,
         imagem: 'static/imgs/risoles.png'
     },
     {
@@ -45,7 +45,7 @@ const produtos = [
         nome: 'Salsicha Empanada',
         descricao: 'Salsicha de alta qualidade envolta em massa artesanal levemente adocicada.',
         precoCru: 20.00,
-        precoFrito: 80.00,
+        precoFrito: 75.00,
         imagem: 'static/imgs/Salsicha-empanada.jpg'
     }
 ];
